@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edgar Velazquez — Digital Marketing Professional</title>
+
+  <!-- Google Fonts: Inter for clean professional look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       GLOBAL RESET & VARIABLES
+       Change accent color here: --accent
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black:   #0a0a0a;
+      --white:   #ffffff;
+      --gray-50: #f9f9f9;
+      --gray-100:#f2f2f2;
+      --gray-200:#e5e5e5;
+      --gray-400:#9a9a9a;
+      --gray-600:#555555;
+      --gray-800:#222222;
+      --accent:  #1a56db;   /* ← change this to any color you like */
+      --accent-light: #e8f0fe;
+      --radius:  10px;
+      --transition: 0.3s ease;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+      --shadow-hover: 0 8px 40px rgba(0,0,0,0.13);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--black);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 5%;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition);
+    }
+
+    .nav-logo {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hamburger for mobile */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav-resume {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-resume:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    /* ============================================================
+       SECTION WRAPPER UTILITY
+    ============================================================ */
+    section {
+      padding: 100px 5%;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--gray-600);
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    /* Fade-in animation triggered by scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 64px;
+      background: var(--white);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 40px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .hero-name {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-name span {
+      color: var(--accent);
+    }
+
+    .hero-headline {
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      font-weight: 400;
+      color: var(--gray-600);
+      max-width: 620px;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #1447c0;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--gray-200);
+      color: var(--black);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      margin-top: 5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray-400);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gray-400);
+    }
+
+    /* Animated stats row */
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--black);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       ABOUT SECTION
+    ============================================================ */
+    #about {
+      background: var(--gray-50);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    /* ============================================================
+       IMAGE PLACEHOLDER — REPLACE WITH YOUR PHOTO
+       To add your photo:
+       1. Save your photo as "headshot.jpg" in the same folder as index.html
+       2. The image will automatically appear here
+    ============================================================ */
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 16px;
+      background: var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+      font-size: 0.85rem;
+      font-weight: 500;
+      overflow: hidden;
+    }
+
+    /* Shown when image is missing */
+    .about-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 16px;
+      background: var(--gray-100);
+      border: 2px dashed var(--gray-200);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--gray-400);
+      font-size: 0.85rem;
+    }
+
+    .about-img-placeholder svg {
+      width: 48px;
+      height: 48px;
+      opacity: 0.4;
+    }
+
+    .about-accent-box {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      width: 160px;
+      height: 160px;
+      background: var(--accent);
+      border-radius: 16px;
+      z-index: -1;
+      opacity: 0.12;
+    }
+
+    .about-text p {
+      color: var(--gray-600);
+      margin-bottom: 1.2rem;
+      font-size: 1.0rem;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ============================================================
+       SKILLS SECTION
+    ============================================================ */
+    #skills {
+      background: var(--white);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      transition: all var(--transition);
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .skill-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .skill-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--accent);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .skill-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      color: var(--black);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      color: var(--gray-600);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 40px;
+    }
+
+    /* ============================================================
+       EXPERIENCE SECTION
+    ============================================================ */
+    #experience {
+      background: var(--white);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--gray-200);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 1.5rem;
+      padding-bottom: 2.75rem;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      z-index: 1;
+    }
+
+    .timeline-dot svg {
+      width: 16px;
+      height: 16px;
+      color: var(--white);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .timeline-content {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      transition: box-shadow var(--transition);
+    }
+
+    .timeline-content:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .job-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .job-company {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 3px;
+    }
+
+    .job-meta {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .job-type {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 40px;
+    }
+
+    .timeline-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .timeline-bullets li {
+      display: flex;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    .timeline-bullets li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+
+    /* Inline metric highlight */
+    .metric {
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+
+    /* Achievement pills */
+    .exp-achievements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gray-100);
+    }
+
+    .exp-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 40px;
+      letter-spacing: 0.01em;
+    }
+
+    .exp-pill::before {
+      content: '↑';
+      font-size: 0.7rem;
+    }
+
+    /* ============================================================
+       PROJECTS SECTION
+    ============================================================ */
+    #projects {
+      background: var(--gray-50);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--white);
+      transition: all var(--transition);
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+
+    /* ============================================================
+       PROJECT GALLERY — SLIDESHOW + THUMBNAIL STRIP
+       Name extra images: project1_2.jpg, project1_3.jpg, etc.
+    ============================================================ */
+    .project-gallery {
+      border-bottom: 1px solid var(--gray-200);
+      background: var(--gray-100);
+    }
+
+    .gallery-main-wrap {
+      position: relative;
+      width: 100%;
+      height: 215px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .gallery-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .gallery-slide.active { opacity: 1; }
+
+    .gallery-ph {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--gray-400);
+      font-size: 0.78rem;
+      z-index: 3;
+    }
+
+    .gallery-ph svg { width: 32px; height: 32px; opacity: 0.35; }
+
+    .gal-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.28);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s, background 0.2s;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0;
+    }
+
+    .gallery-main-wrap:hover .gal-arrow { opacity: 1; }
+    .gal-arrow:hover { background: rgba(255,255,255,0.28); }
+    .gal-prev { left: 12px; }
+    .gal-next { right: 12px; }
+
+    .gal-counter {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      z-index: 4;
+      background: rgba(0,0,0,0.42);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 3px 9px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .gal-progress {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2.5px;
+      background: rgba(255,255,255,0.12);
+      z-index: 4;
+    }
+
+    .gal-progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+    }
+
+    .gallery-thumbs {
+      display: flex;
+      gap: 5px;
+      padding: 7px;
+      background: var(--gray-50);
+    }
+
+    .gal-thumb {
+      flex: 1;
+      min-width: 0;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.48;
+      transition: opacity 0.2s, transform 0.2s;
+      display: block;
+    }
+
+    .gal-thumb.active {
+      opacity: 1;
+      outline: 2.5px solid var(--accent);
+      outline-offset: -2px;
+    }
+
+    .gal-thumb:hover:not(.active) {
+      opacity: 0.78;
+      transform: scale(1.05);
+    }
+
+    .project-body {
+      padding: 1.5rem 1.75rem;
+    }
+
+    .project-category {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .result-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      color: var(--gray-800);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 40px;
+    }
+
+    .result-tag::before {
+      content: '↑';
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       CONTACT SECTION
+    ============================================================ */
+    #contact {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    #contact .section-label {
+      color: #6c9eff;
+    }
+
+    #contact .section-title {
+      color: var(--white);
+    }
+
+    #contact .section-subtitle {
+      color: rgba(255,255,255,0.55);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.4rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all var(--transition);
+    }
+
+    .contact-link:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.25);
+      transform: translateX(4px);
+    }
+
+    .contact-link-icon {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-link-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: #6c9eff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-link-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      display: block;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .contact-link-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    /* Contact form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color var(--transition);
+      resize: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group textarea {
+      height: 130px;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--black);
+      border: none;
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: var(--gray-100);
+      transform: translateY(-2px);
+    }
+
+    /* Form success message */
+    .form-success {
+      display: none;
+      padding: 16px;
+      background: rgba(22,163,74,0.15);
+      border: 1px solid rgba(22,163,74,0.3);
+      border-radius: 8px;
+      color: #4ade80;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: #050505;
+      padding: 1.75rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    footer p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-logo {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ============================================================
+       CERTIFICATIONS SECTION
+    ============================================================ */
+    #certifications {
+      background: var(--gray-50);
+    }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .cert-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      transition: all var(--transition);
+    }
+
+    .cert-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .cert-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .cert-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cert-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--accent);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(22,163,74,0.1);
+      color: #16a34a;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 40px;
+    }
+
+    .cert-badge::before {
+      content: '✓';
+      font-weight: 900;
+    }
+
+    .cert-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.3rem;
+    }
+
+    .cert-issuer {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .cert-desc {
+      font-size: 0.88rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       RESPONSIVE — MOBILE & TABLET
+    ============================================================ */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        padding: 0 4%;
+      }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--gray-200);
+        flex-direction: column;
+        padding: 1.5rem 5%;
+        gap: 1.25rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        font-size: 1rem;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-resume {
+        display: none;
+      }
+
+      section {
+        padding: 72px 5%;
+      }
+
+      .skills-grid,
+      .certs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        gap: 2rem;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .timeline-dot {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       To change your name in the nav, edit "Edgar<span>.</span>"
+  ============================================================ -->
+  <nav>
+    <a href="#hero" class="nav-logo">Edgar<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="Edgar_Velazquez_Resume.pdf" download class="nav-resume">Download Resume</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO SECTION
+       Edit your headline text below
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-inner fade-in">
+      <div class="hero-badge">Open to Work</div>
+
+      <h1 class="hero-name">
+        Edgar<br /><span>Velazquez</span>
+      </h1>
+
+      <!-- ← EDIT YOUR HEADLINE HERE -->
+      <p class="hero-headline">
+        Digital Marketing Professional with proven expertise in content strategy, audience
+        development, and data-driven campaign execution — delivering
+        <strong>200,000+ combined social media views</strong>, 12 secured brand partnerships,
+        and measurable growth across every brand I've worked on.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        <a href="#experience" class="btn btn-outline">View My Work</a>
+      </div>
+
+      <!-- ← EDIT THESE THREE STATS TO MATCH YOUR HIGHLIGHTS -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">200K+</span>
+          <span class="stat-label">Social Views</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">90%</span>
+          <span class="stat-label">Repeat Rate</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Partnerships</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Brands Grown</span>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <span class="scroll-line"></span>
+        Scroll to explore
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ABOUT SECTION
+       Edit the paragraphs below to update your bio
+  ============================================================ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- IMAGE: Save your photo as "headshot.jpg" in the same folder -->
+        <div class="about-image-wrap fade-in">
+          <!-- When you have a photo: change "headshot.jpg" to your image filename -->
+          <img
+            src="headshot.jpg"
+            alt="Edgar Velazquez"
+            class="about-img"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="about-img-placeholder" style="display:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span>headshot.jpg</span>
+          </div>
+          <div class="about-accent-box"></div>
+        </div>
+
+        <!-- ← EDIT YOUR BIO TEXT HERE -->
+        <div class="about-text fade-in">
+          <p class="section-label">About Me</p>
+          <h2 class="section-title">Data-Informed Strategy,<br />Measurable Impact</h2>
+
+          <p>
+            I'm Edgar Velazquez, a Digital Marketing Professional with hands-on experience in brand
+            development, content strategy, and performance analytics. I've built and managed
+            marketing operations across three distinct brands, applying data-driven approaches to
+            achieve consistent, quantifiable results.
+          </p>
+          <p>
+            Across my own auto detailing business, FitLicious Meal Prep, and Lakai Properties,
+            I've executed campaigns generating 200,000+ combined social media views, established
+            12 brand partnerships, and delivered sustained improvements in engagement rate,
+            organic reach, and audience retention.
+          </p>
+          <p>
+            I approach every project analytically — tracking performance metrics, identifying
+            optimization opportunities, and refining strategy based on real data. I'm seeking
+            an entry-level marketing role where I can apply that same strategic mindset and
+            executional discipline to a results-driven team.
+          </p>
+
+          <a href="#contact" class="btn btn-primary" style="margin-top: 1.75rem; display: inline-flex;">
+            Let's Connect
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SKILLS SECTION
+       Edit skill tags by adding or removing <span class="skill-tag"> items
+  ============================================================ -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label fade-in">What I Bring</p>
+      <h2 class="section-title fade-in">Skills & Expertise</h2>
+      <p class="section-subtitle fade-in">
+        A results-driven toolkit developed through hands-on campaign execution, performance analytics, and audience development across multiple brands.
+      </p>
+
+      <div class="skills-grid">
+
+        <!-- CARD 1: Digital Marketing -->
+        <div class="skill-card fade-in">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Digital Marketing &amp; Social Media</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Social Media Strategy</span>
+            <span class="skill-tag">Content Creation</span>
+            <span class="skill-tag">Instagram &amp; TikTok</span>
+            <span class="skill-tag">Campaign Management</span>
+            <span class="skill-tag">Audience Growth</span>
+            <span class="skill-tag">Brand Development</span>
+            <span class="skill-tag">Community Engagement</span>
+            <span class="skill-tag">SEO Fundamentals</span>
+          </div>
+        </div>
+
+        <!-- CARD 2: Research & Analysis -->
+        <div class="skill-card fade-in">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>Research &amp; Data Analysis</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Analytics Interpretation</span>
+            <span class="skill-tag">Performance Tracking</span>
+            <span class="skill-tag">A/B Testing Concepts</span>
+            <span class="skill-tag">Market Research</span>
+            <span class="skill-tag">Competitor Analysis</span>
+            <span class="skill-tag">KPI Reporting</span>
+            <span class="skill-tag">Engagement Metrics</span>
+          </div>
+        </div>
+
+        <!-- CARD 3: Tools & Software -->
+        <div class="skill-card fade-in">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          </div>
+          <h3>Tools &amp; Software</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Instagram Insights</span>
+            <span class="skill-tag">TikTok Analytics</span>
+            <span class="skill-tag">Canva</span>
+            <span class="skill-tag">Google Analytics</span>
+            <span class="skill-tag">Meta Business Suite</span>
+            <span class="skill-tag">Microsoft Office</span>
+            <span class="skill-tag">Google Workspace</span>
+            <span class="skill-tag">Email Marketing</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CERTIFICATIONS SECTION
+  ============================================================ -->
+  <section id="certifications">
+    <div class="container">
+      <p class="section-label fade-in">Credentials</p>
+      <h2 class="section-title fade-in">Certifications</h2>
+      <p class="section-subtitle fade-in">
+        Industry-recognized credentials validating expertise in analytics, campaign strategy, and digital marketing execution.
+      </p>
+
+      <div class="certs-grid">
+
+        <!-- Google Analytics 4 -->
+        <div class="cert-card fade-in">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 21H3V3"/><path d="M7 14l4-4 4 4 4-7"/></svg>
+            </div>
+            <span class="cert-badge">Verified</span>
+          </div>
+          <h3 class="cert-name">Google Analytics 4 (GA4)</h3>
+          <p class="cert-issuer">Google</p>
+          <p class="cert-desc">
+            Covers GA4's event-based data model, audience segmentation, conversion tracking,
+            and reporting — the foundation for making data-driven decisions across any digital channel.
+          </p>
+        </div>
+
+        <!-- HubSpot Digital Marketing -->
+        <div class="cert-card fade-in">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <span class="cert-badge">Verified</span>
+          </div>
+          <h3 class="cert-name">Digital Marketing Certification</h3>
+          <p class="cert-issuer">HubSpot Academy</p>
+          <p class="cert-desc">
+            Covers the full digital marketing toolkit — SEO, content strategy, social media,
+            paid advertising, email marketing, and analytics — with a focus on campaigns that
+            drive measurable results.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       EXPERIENCE SECTION
+       Edit job titles, companies, and bullet points below
+  ============================================================ -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label fade-in">Work History</p>
+      <h2 class="section-title fade-in">Experience</h2>
+      <p class="section-subtitle fade-in">
+        Hands-on experience across founding, marketing, and partnership roles — each delivering quantifiable, documented outcomes.
+      </p>
+
+      <div class="timeline">
+
+        <!-- JOB 1 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <div class="job-title">Founder &amp; Social Media Manager</div>
+                <div class="job-company">Auto Detailing Business (Self-Employed)</div>
+              </div>
+              <div class="job-meta">
+                <span class="job-type">Founder</span>
+              </div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Founded and independently operated a mobile detailing business, managing all aspects of service delivery, client acquisition, and digital marketing strategy.</li>
+              <li>Grew organic social media presence to <span class="metric">300+ followers</span> and <span class="metric">60,000+ total views</span> within 90 days by developing and executing a short-form video content strategy with zero paid media spend.</li>
+              <li>Increased post engagement by <span class="metric">35%</span> through systematic platform analytics review, iterating on content format, posting cadence, and copy optimization.</li>
+              <li>Achieved a <span class="metric">90% repeat booking rate</span> by implementing a structured client follow-up system and maintaining consistent service quality standards.</li>
+            </ul>
+            <div class="exp-achievements">
+              <span class="exp-pill">60K+ Views</span>
+              <span class="exp-pill">300+ Followers in 3 months</span>
+              <span class="exp-pill">35% Engagement Lift</span>
+              <span class="exp-pill">90% Repeat Booking Rate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- JOB 2 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <div class="job-title">Marketing Team Member</div>
+                <div class="job-company">FitLicious Meal Prep</div>
+              </div>
+              <div class="job-meta">
+                <span class="job-type">Marketing</span>
+              </div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Executed in-person brand activations at <span class="metric">10+ gym locations</span>, generating direct engagement with <span class="metric">100+ qualified prospects weekly</span> and driving measurable brand awareness growth.</li>
+              <li>Contributed to social media campaigns that collectively generated <span class="metric">140,000+ views</span>, significantly expanding organic reach across regional fitness communities.</li>
+              <li>Developed and maintained cross-platform content consistency, reinforcing brand identity through a unified visual language and messaging framework.</li>
+            </ul>
+            <div class="exp-achievements">
+              <span class="exp-pill">140K+ Views</span>
+              <span class="exp-pill">10+ Gym Locations</span>
+              <span class="exp-pill">100+ Engagements/Week</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- JOB 3 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <div class="job-title">Marketing Intern</div>
+                <div class="job-company">Lakai Properties LLC</div>
+              </div>
+              <div class="job-meta">
+                <span class="job-type">Internship</span>
+              </div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Identified, prospected, and secured <span class="metric">12 brand partnerships</span> through targeted outreach, competitive research, and personalized pitching — managing each relationship from initial contact through deal close.</li>
+              <li>Grew the company's social media following by <span class="metric">60%</span> and increased audience engagement by <span class="metric">40%</span> through a structured content calendar, platform-specific targeting, and performance-driven campaign optimization.</li>
+              <li>Improved organic website traffic by <span class="metric">25%</span> by developing and optimizing SEO-focused content aligned with high-intent search queries in the real estate vertical.</li>
+            </ul>
+            <div class="exp-achievements">
+              <span class="exp-pill">12 Brand Partnerships</span>
+              <span class="exp-pill">60% Follower Growth</span>
+              <span class="exp-pill">40% Engagement Increase</span>
+              <span class="exp-pill">25% Organic Traffic Lift</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PROJECTS SECTION
+       HOW TO ADD YOUR IMAGE:
+       1. Save your image file in the same folder as index.html
+       2. Name it: project1.jpg (or project2.jpg, etc.)
+       3. The <img> tag below will load it automatically
+       4. To change the filename, edit src="project1.jpg" to your file's name
+  ============================================================ -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label fade-in">Portfolio</p>
+      <h2 class="section-title fade-in">Featured Projects</h2>
+      <p class="section-subtitle fade-in">
+        Strategic campaigns and growth initiatives with quantifiable, documented outcomes.
+      </p>
+
+      <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+        <div class="project-card fade-in">
+          <div class="project-gallery">
+            <div class="gallery-main-wrap">
+              <img class="gallery-slide active" src="project1.jpg"   alt="Auto Detailing">
+              <img class="gallery-slide"        src="project1_2.jpg" alt="Auto Detailing">
+              <img class="gallery-slide"        src="project1_3.jpg" alt="Auto Detailing">
+              <div class="gallery-ph">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>project1.jpg · project1_2.jpg · project1_3.jpg</span>
+              </div>
+              <button class="gal-arrow gal-prev" aria-label="Previous">&#8249;</button>
+              <button class="gal-arrow gal-next" aria-label="Next">&#8250;</button>
+              <div class="gal-counter"></div>
+              <div class="gal-progress"><div class="gal-progress-fill"></div></div>
+            </div>
+            <div class="gallery-thumbs">
+              <img class="gal-thumb" src="project1.jpg"   alt="">
+              <img class="gal-thumb" src="project1_2.jpg" alt="">
+              <img class="gal-thumb" src="project1_3.jpg" alt="">
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-category">Social Media Growth</p>
+            <h3 class="project-title">Auto Detailing Brand — Built from Zero</h3>
+            <p class="project-desc">
+              Developed and executed a comprehensive organic social media strategy, leveraging
+              short-form video content, client testimonials, and before/after documentation
+              to drive audience growth and brand credibility — achieving measurable results
+              with zero paid media investment.
+            </p>
+            <div class="project-results">
+              <span class="result-tag">60K+ Views</span>
+              <span class="result-tag">300+ Followers (3 months)</span>
+              <span class="result-tag">35% Engagement Lift</span>
+              <span class="result-tag">90% Repeat Clients</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="project-card fade-in">
+          <div class="project-gallery">
+            <div class="gallery-main-wrap">
+              <img class="gallery-slide active" src="project2.jpg"   alt="FitLicious">
+              <img class="gallery-slide"        src="project2_2.jpg" alt="FitLicious">
+              <img class="gallery-slide"        src="project2_3.jpg" alt="FitLicious">
+              <div class="gallery-ph">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>project2.jpg · project2_2.jpg · project2_3.jpg</span>
+              </div>
+              <button class="gal-arrow gal-prev" aria-label="Previous">&#8249;</button>
+              <button class="gal-arrow gal-next" aria-label="Next">&#8250;</button>
+              <div class="gal-counter"></div>
+              <div class="gal-progress"><div class="gal-progress-fill"></div></div>
+            </div>
+            <div class="gallery-thumbs">
+              <img class="gal-thumb" src="project2.jpg"   alt="">
+              <img class="gal-thumb" src="project2_2.jpg" alt="">
+              <img class="gal-thumb" src="project2_3.jpg" alt="">
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-category">Field Marketing &amp; Content</p>
+            <h3 class="project-title">FitLicious — Fitness Community Campaign</h3>
+            <p class="project-desc">
+              Executed an integrated marketing strategy combining in-person brand activations
+              with a consistent social media content plan to grow awareness in the competitive
+              meal prep space — engaging 100+ qualified prospects weekly while supporting
+              campaigns that generated 140,000+ total views.
+            </p>
+            <div class="project-results">
+              <span class="result-tag">140K+ Views</span>
+              <span class="result-tag">10+ Gym Locations</span>
+              <span class="result-tag">100+ Engagements/Week</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="project-card fade-in">
+          <div class="project-gallery">
+            <div class="gallery-main-wrap">
+              <img class="gallery-slide active" src="project3.jpg"   alt="Lakai Properties">
+              <img class="gallery-slide"        src="project3_2.jpg" alt="Lakai Properties">
+              <img class="gallery-slide"        src="project3_3.jpg" alt="Lakai Properties">
+              <div class="gallery-ph">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>project3.jpg · project3_2.jpg · project3_3.jpg</span>
+              </div>
+              <button class="gal-arrow gal-prev" aria-label="Previous">&#8249;</button>
+              <button class="gal-arrow gal-next" aria-label="Next">&#8250;</button>
+              <div class="gal-counter"></div>
+              <div class="gal-progress"><div class="gal-progress-fill"></div></div>
+            </div>
+            <div class="gallery-thumbs">
+              <img class="gal-thumb" src="project3.jpg"   alt="">
+              <img class="gal-thumb" src="project3_2.jpg" alt="">
+              <img class="gal-thumb" src="project3_3.jpg" alt="">
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-category">Partnerships &amp; SEO</p>
+            <h3 class="project-title">Lakai Properties — Growth Strategy</h3>
+            <p class="project-desc">
+              Led a multi-channel growth initiative encompassing strategic partnership
+              development, organic social media growth, and SEO content optimization —
+              delivering measurable improvements across follower acquisition, audience
+              engagement, and organic website traffic.
+            </p>
+            <div class="project-results">
+              <span class="result-tag">12 Partnerships Secured</span>
+              <span class="result-tag">60% Follower Growth</span>
+              <span class="result-tag">40% Engagement Increase</span>
+              <span class="result-tag">25% Organic Traffic Lift</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT SECTION
+       Edit your contact details below
+  ============================================================ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div>
+          <p class="section-label fade-in">Get In Touch</p>
+          <h2 class="section-title fade-in">Let's Work Together</h2>
+          <p class="section-subtitle fade-in">
+            I'm actively looking for entry-level marketing roles. If you're building a team
+            that values results-driven content and a strong work ethic, I'd love to connect.
+          </p>
+
+          <!-- ← EDIT YOUR CONTACT DETAILS HERE -->
+          <div class="contact-links fade-in">
+
+            <a href="mailto:edgarvelazquez.marketing@gmail.com" class="contact-link">
+              <div class="contact-link-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <span class="contact-link-label">Email</span>
+                <span class="contact-link-value">edgarvelazquez.marketing@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="tel:+13233198663" class="contact-link">
+              <div class="contact-link-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.41 2 2 0 0 1 3.53 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <span class="contact-link-label">Phone</span>
+                <span class="contact-link-value">(323) 319-8663</span>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/edgar-velazquez-b2a857363" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-link-icon">
+                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </div>
+              <div>
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-value">edgar-velazquez-b2a857363</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Quick contact form (no backend needed — opens email client) -->
+        <div class="fade-in">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about the opportunity..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-white">Send Message →</button>
+            <div class="form-success" id="formSuccess">
+              Thanks for reaching out! I'll get back to you within 24 hours.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Edgar Velazquez</span>
+    <p>© 2026 · Digital Marketing Professional</p>
+    <p>Built with HTML &amp; CSS</p>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT — Scroll animations, mobile nav, contact form
+       You do not need to edit this section
+  ============================================================ -->
+  <script>
+    // ----- Mobile navigation toggle -----
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ----- Scroll-triggered fade-in animations -----
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Stagger cards within grids
+    document.querySelectorAll('.skills-grid .skill-card, .projects-grid .project-card, .timeline-item').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.1}s`;
+    });
+
+    // ----- Active nav link on scroll -----
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
+      navAnchors.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
+      });
+    }, { passive: true });
+
+    // ----- Contact form (opens email client as fallback) -----
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const fname   = document.getElementById('fname').value;
+      const lname   = document.getElementById('lname').value;
+      const email   = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Opens the user's email client with the form data pre-filled
+      const subject = encodeURIComponent(`Portfolio Inquiry from ${fname} ${lname}`);
+      const body    = encodeURIComponent(`Name: ${fname} ${lname}\nEmail: ${email}\n\nMessage:\n${message}`);
+      window.location.href = `mailto:edgarvelazquez.marketing@gmail.com?subject=${subject}&body=${body}`;
+
+      // Show success message
+      document.getElementById('formSuccess').style.display = 'block';
+      this.reset();
+    });
+
+    // ----- Project Gallery Slideshow -----
+    document.querySelectorAll('.project-gallery').forEach(gallery => {
+      const mainWrap  = gallery.querySelector('.gallery-main-wrap');
+      const allSlides = Array.from(gallery.querySelectorAll('.gallery-slide'));
+      const allThumbs = Array.from(gallery.querySelectorAll('.gal-thumb'));
+      const counter   = gallery.querySelector('.gal-counter');
+      const fill      = gallery.querySelector('.gal-progress-fill');
+      const prevBtn   = gallery.querySelector('.gal-prev');
+      const nextBtn   = gallery.querySelector('.gal-next');
+      const thumbRow  = gallery.querySelector('.gallery-thumbs');
+      const ph        = gallery.querySelector('.gallery-ph');
+      const prog      = gallery.querySelector('.gal-progress');
+      const AUTO      = 3800;
+      let slides = [], thumbs = [], cur = 0, timer = null;
+
+      function goTo(idx) {
+        const n = slides.length;
+        slides[cur].classList.remove('active');
+        if (thumbs[cur]) thumbs[cur].classList.remove('active');
+        cur = ((idx % n) + n) % n;
+        slides[cur].classList.add('active');
+        if (thumbs[cur]) thumbs[cur].classList.add('active');
+        if (counter) counter.textContent = `${cur + 1} / ${n}`;
+        resetFill();
+      }
+
+      function resetFill() {
+        if (!fill) return;
+        fill.style.transition = 'none';
+        fill.style.width = '0%';
+        void fill.offsetWidth;
+        fill.style.transition = `width ${AUTO}ms linear`;
+        fill.style.width = '100%';
+      }
+
+      function startAuto() { clearInterval(timer); timer = setInterval(() => goTo(cur + 1), AUTO); resetFill(); }
+      function stopAuto()  { clearInterval(timer); if (fill) fill.style.transition = 'none'; }
+
+      function setup() {
+        allSlides.forEach(s => { if (s.naturalWidth === 0) s.style.display = 'none'; });
+        allThumbs.forEach(t => { if (t.naturalWidth === 0) t.style.display = 'none'; });
+        slides = allSlides.filter(s => s.naturalWidth > 0);
+        thumbs = allThumbs.filter(t => t.naturalWidth > 0);
+        allSlides.forEach(s => s.classList.remove('active'));
+        allThumbs.forEach(t => t.classList.remove('active'));
+        const n = slides.length;
+
+        if (n === 0) {
+          if (ph) ph.style.display = 'flex';
+          [prevBtn, nextBtn, counter, thumbRow, prog].forEach(el => el && (el.style.display = 'none'));
+          return;
+        }
+        if (ph) ph.style.display = 'none';
+        slides[0].classList.add('active');
+        if (thumbs[0]) thumbs[0].classList.add('active');
+        if (counter) counter.textContent = `1 / ${n}`;
+
+        if (n === 1) {
+          [prevBtn, nextBtn, counter, thumbRow, prog].forEach(el => el && (el.style.display = 'none'));
+          return;
+        }
+
+        thumbs.forEach((t, i) => t.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); }));
+        prevBtn && prevBtn.addEventListener('click', () => { stopAuto(); goTo(cur - 1); startAuto(); });
+        nextBtn && nextBtn.addEventListener('click', () => { stopAuto(); goTo(cur + 1); startAuto(); });
+        mainWrap.addEventListener('mouseenter', stopAuto);
+        mainWrap.addEventListener('mouseleave', startAuto);
+        startAuto();
+      }
+
+      let pending = allSlides.length;
+      if (!pending) { setup(); return; }
+      allSlides.forEach(img => {
+        const settle = () => { if (--pending === 0) setup(); };
+        img.complete ? settle() : (img.onload = img.onerror = settle);
+      });
+    });
+
+    // ----- Animated number counter for hero stats -----
+    function animateCounter(el, target, duration) {
+      let start = 0;
+      const step = target / (duration / 16);
+      const run = () => {
+        start += step;
+        if (start >= target) {
+          el.textContent = target.toLocaleString() + (el.dataset.suffix || '');
+          return;
+        }
+        el.textContent = Math.floor(start).toLocaleString() + (el.dataset.suffix || '');
+        requestAnimationFrame(run);
+      };
+      requestAnimationFrame(run);
+    }
+
+    // Trigger counters when hero is visible
+    const heroObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        document.querySelectorAll('.stat-number').forEach(el => {
+          const raw = el.textContent.replace(/[^0-9]/g, '');
+          if (raw) {
+            const suffix = el.textContent.replace(/[0-9,]/g, '');
+            el.dataset.suffix = suffix;
+            animateCounter(el, parseInt(raw), 1200);
+          }
+        });
+        heroObserver.disconnect();
+      }
+    }, { threshold: 0.5 });
+
+    heroObserver.observe(document.getElementById('hero'));
+  </script>
+
+</body>
+</html>
